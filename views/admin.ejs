@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <!-- <form>
+
+      <input type="text" name="name" value="NAME" required>
+      <input type="text" name="surname" value="SURNAME" required>
+      <input type="text" name="gender" value="GENDER">
+      <input type="text" name="age" value="AGE">
+      <input type="text" name="birdthDate" value="DATE OF BIRTH">
+      <input type="text" name="adress" value="ADRESS">
+      <button type="submit">OK</button>
+      
+    </form> -->
+
+    <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Gender</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+        <%studentsList.forEach(student => {%>
+            <tr>
+              <td><%= student.name %></td>
+              <td><%= student.surname %></td>
+              <td><%= student.gender %></td>
+              <td>
+                <a href="/update/<%= student._id %>">change</a>
+                <a href="/admin/delete/<%= student._id %>" onclick="return confirm('Are you sure to delete this record ?');">delete</a>
+            </td>
+            </tr>
+          <%})%>
+      </tbody>
+      <a href="/create">create new user</a>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
